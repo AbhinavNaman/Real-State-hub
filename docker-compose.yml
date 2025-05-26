@@ -1,0 +1,16 @@
+services:
+  client:
+    build: ./client
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server
+    restart: always
+
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb+srv://abhinavnaman6:qMfLXrCWuqf1saqO@real-estate.0bbbzts.mongodb.net/?retryWrites=true&w=majority&appName=Real-Estate
+    restart: always
